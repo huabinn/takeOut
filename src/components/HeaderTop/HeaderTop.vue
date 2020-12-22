@@ -48,6 +48,9 @@
             .header_title_text
                 font-size 18px
                 color #fff
+                white-space nowrap
+                overflow: hidden;
+                text-overflow ellipsis
                 display block
         .header_login
             font-size 14px
