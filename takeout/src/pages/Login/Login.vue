@@ -24,7 +24,7 @@
               </section>
               <section class="login_hint">
                 温馨提示：未注册广药外卖帐号的手机号，登录时将自动注册，且代表已同意
-                <a href="javascript:;">《用户服务协议》</a>
+                <a href="#">《用户服务协议》</a>
               </section>
             </div>
             <!-- 密码登录 -->
@@ -51,9 +51,9 @@
             </div>
             <button class="login_submit">登录</button>
           </form>
-          <a href="javascript:;" class="about_us">关于我们</a>
+          <a href="#" class="about_us">关于我们</a>
         </div>
-        <a href="javascript:" class="go_back" @click="$router.back()">
+        <a href="#" class="go_back" @click="$router.back()">
           <i class="iconfont icon-arrow-left"></i>
         </a>
       </div>

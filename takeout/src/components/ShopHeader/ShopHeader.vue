@@ -2,9 +2,9 @@
   <div class="shop-header">
     <!-- 顶部返回按钮部分 -->
     <nav class="shop-nav" :style="{backgroundImage: `url(${info.bgImg})`}">
-      <router-link class="back" to="/msite" @click="$router.back()">
+      <span class="back" @click="$router.back()">
         <i class="iconfont icon-arrow-left"></i>
-      </router-link>
+      </span>
     </nav>
     <!-- 商家名称等 -->
     <div class="shop-content" @click="shopShow=!shopShow">

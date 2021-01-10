@@ -6,12 +6,12 @@
             </span>
             <span>外卖</span>
         </router-link>
-        <router-link class="guide_item" :class="{on: '/search'===$route.path}" to="/search">
+        <!-- <router-link class="guide_item" :class="{on: '/search'===$route.path}" to="/search">
             <span class="item_icon">
                 <i class="iconfont icon-search"></i>
             </span>
             <span>搜索</span>
-        </router-link>
+        </router-link> -->
         <router-link class="guide_item" :class="{on: '/order'===$route.path}" to="/order">
             <span class="item_icon">
                 <i class="iconfont icon-order"></i>

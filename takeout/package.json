@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "better-scroll": "^1.11.1",
     "core-js": "^3.6.5",
+    "date-fns": "^2.16.1",
     "mint-ui": "^2.2.13",
     "mockjs": "^1.1.0",
     "swiper": "^4.2.6",

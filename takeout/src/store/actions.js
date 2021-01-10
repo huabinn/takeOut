@@ -7,7 +7,12 @@ import {
     RESET_USER_INFO,
     RECEIVE_GOODS,
     RECEIVE_RATINGS,
-    RECEIVE_INFO
+    RECEIVE_INFO,
+    INCREMENT_FOOD_COUNT,
+    DECREMENT_FOOD_COUNT,
+    CLEAR_CART,
+    RECEIVE_SEARCH_SHOPS,
+    CLEAR_SEARCH_SHOPS
 } from './mutation-types'
 import {
     reqAddress,
@@ -17,7 +22,8 @@ import {
     reqLogout,
     reqShopInfo,
     reqShopRatings,
-    reqShopGoods
+    reqShopGoods,
+    reqSearchShop
 } from '../api'
 
 export default {
@@ -98,6 +104,7 @@ export default {
         if (result.code === 0) {
             const ratings = result.data
             commit(RECEIVE_RATINGS, {ratings})
+            // callback是个可执行函数
             // 数据更新了, 通知一下组件
             callback && callback()
         }
@@ -112,4 +119,32 @@ export default {
         }
     },
 
+    // 同步更新 food 的 count 
+    updateFoodCount ({commit}, {isAdd, food}) {
+        if (isAdd) {
+            commit(INCREMENT_FOOD_COUNT, {food})
+        } else {
+            commit(DECREMENT_FOOD_COUNT, {food})
+        }
+    },
+
+    // 同步清空购物车
+    clearCart ({commit}) {
+        commit(CLEAR_CART)
+    },
+
+    // 异步搜索商家
+    async searchShops({commit, state}, keyword) {
+        const geohash = state.latitude + ',' + state.longitude
+        const result = await reqSearchShop(geohash, keyword)
+        if (result.code === 0) {
+            const searchShop = result.data
+            commit(RECEIVE_SEARCH_SHOPS, {searchShop})
+        }
+    },
+
+    // 清空搜索商家
+    clearSearchShops({commit, state}) {
+        commit(CLEAR_SEARCH_SHOPS)
+    },
 }

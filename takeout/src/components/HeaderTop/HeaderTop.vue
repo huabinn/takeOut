@@ -34,7 +34,7 @@
             transform translateY(-50%)
             width 10%
             height 50%
-            .icon-search
+            .icon-search, .icon-arrow-left
                 font-size 25px
                 color #fff
         .header_title
