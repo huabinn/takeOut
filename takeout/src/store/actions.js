@@ -88,8 +88,8 @@ export default {
     },
 
     // 异步获取商家商品列表
-    async getShopGoods({commit}, callback) {
-        const result = await reqShopGoods()
+    async getShopGoods({commit}, {id, callback}) {
+        const result = await reqShopGoods({id: id})
         if (result.code === 0) {
             const goods = result.data
             commit(RECEIVE_GOODS, {goods})
@@ -111,8 +111,8 @@ export default {
     },
 
     // 异步获取商家信息
-    async getShopInfo({commit}) {
-        const result = await reqShopInfo()
+    async getShopInfo({commit}, id) {
+        const result = await reqShopInfo(id)
         if (result.code === 0) {
             const info = result.data
             commit(RECEIVE_INFO, {info})

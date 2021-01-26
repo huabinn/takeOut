@@ -61,7 +61,9 @@ export default new VueRouter({
         },
         {
             path: '/shop',
+            // name: 'shop',
             component: Shop,
+            // props: true,
             children: [
                 {
                     path: '/shop/goods',

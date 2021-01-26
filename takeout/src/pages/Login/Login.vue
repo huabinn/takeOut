@@ -43,8 +43,8 @@
                 </section>
                 <section class="login_message">
                   <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
-                  <!-- http://localhost:4000/captcha 显示验证码的svg图片 -->
-                  <img class="get_verification" src="http://localhost:4000/captcha"
+                  <!-- http://localhost:8000/captcha 显示验证码的svg图片 -->
+                  <img class="get_verification" src="http://localhost:8000/captcha"
                        @click="getCaptcha" alt="captcha" ref="captcha">
                 </section>
               </section>
@@ -175,7 +175,7 @@
         // 获取动态一次性验证码
         getCaptcha () {
           // 每次指定的 src 值，都要变化
-          this.$refs.captcha.src = 'http://localhost:4000/captcha?time' + Date.now()
+          this.$refs.captcha.src = 'http://localhost:8000/captcha?time' + Date.now()
         },
 
       },

@@ -2,10 +2,10 @@
     <div class="shop_container">
         <ul class="shop_list" v-if="shops.length">
             <li class="shop_li border-1px" v-for="(shop, index) in shops" :key='index'
-             @click="$router.push('/Shop')">
+             @click="$router.push({path: '/shop', query: {id: shop.id}})">
                 <a>
                     <div class="shop_left">
-                    <img class="shop_img" :src="getImg(index)">
+                    <img class="shop_img" :src="shop.image_path">
                     </div>
                     <div class="shop_right">
                     <section class="shop_detail_header">
@@ -56,14 +56,14 @@
             ...mapState(['shops'])
         },
 
-        methods: {
-            // 获取图片函数
-            getImg (index) {
-                // 需要使用 require 引入图片资源
-                const arr = require('./images/shop/'+index+'.jpg')
-                return arr
-            }
-        },
+        // methods: {
+        //     // 获取图片函数
+        //     getImg (index) {
+        //         // 需要使用 require 引入图片资源
+        //         const arr = require('./images/shop/'+index+'.jpg')
+        //         return arr
+        //     }
+        // },
 
         components: {
             Star

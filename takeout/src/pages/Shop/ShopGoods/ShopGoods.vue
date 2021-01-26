@@ -69,12 +69,15 @@
             }
         },
         mounted () {
-            this.$store.dispatch('getShopGoods', () => {
-                this.$nextTick(() => {
-                    // 列表显示之后创建
-                    this._initScroll()
-                    this._initTops()
-                })
+            this.$store.dispatch('getShopGoods', {
+                id: this.$route.query.id,
+                callback: () => {
+                    this.$nextTick(() => {
+                        // 列表显示之后创建
+                        this._initScroll()
+                        this._initTops()
+                    })
+                }
             })
         },
         

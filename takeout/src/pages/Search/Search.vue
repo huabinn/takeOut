@@ -17,7 +17,7 @@
                 <router-link :to="{path:'/shop', query:{id:item.id}}" tag="li"
                             v-for="item in searchShops" :key="item.id" class="list_li">
                     <section class="item_left">
-                        <img :src="imgBaseUrl + item.image_path" class="restaurant_img">
+                        <img :src="item.image_path" class="restaurant_img">
                     </section>
                     <section class="item_right">
                         <div class="item_right_text">
@@ -43,7 +43,6 @@
         data () {
             return {
                 keyword: '',
-                imgBaseUrl: 'http://cangdu.org:8001/img/',
                 noSearchShops: true
             }
         },
@@ -53,7 +52,7 @@
 
         methods: {
             search () {
-                console.log(this.keyword);
+                // console.log(this.keyword);
                 const keyword = this.keyword.trim()
                 if (keyword) {
                     this.$store.dispatch('searchShops', keyword)

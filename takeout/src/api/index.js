@@ -26,8 +26,8 @@ export const reqUserInfo = () => ajax(BASE_URL+'/userinfo')
 export const reqLogout = () => ajax(BASE_URL+'/logout')
 
 // 获取商家信息
-export const reqShopInfo = () => ajax('/info')
+export const reqShopInfo = (id) => ajax(BASE_URL+'/shop_info', id)
 // 获取商家评价数据
-export const reqShopRatings = () => ajax('/ratings')
+export const reqShopRatings = () => ajax(BASE_URL+'/shop_ratings')
 // 获取商家商品数据
-export const reqShopGoods = () => ajax('/goods')
+export const reqShopGoods = (id) => ajax(BASE_URL+'/shop_goods', id)
