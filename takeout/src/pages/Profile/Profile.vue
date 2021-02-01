@@ -5,10 +5,12 @@
     <section class="profile-number">
       <router-link :to="userInfo._id? '/userInfo' : '/login'" class="profile-link">
         <div class="profile_image">
-          <i class="iconfont icon-bussiness-man-fill"></i>
+          <!-- <i class="iconfont icon-bussiness-man-fill"></i> -->
+          <!-- <img src="http://localhost:8000/public/images/avatar-default.png" alt=""> -->
+          <img :src="userInfo.avatar? baseUrl + userInfo.avatar : 'http://localhost:8000/public/images/avatar-default.png'" alt="">
         </div>
         <div class="user-info">
-          <p class="user-info-top" v-if="!userInfo.phone">{{userInfo.name || '登录/注册'}}</p>
+          <p class="user-info-top">{{userInfo.name || '登录/注册'}}</p>
           <p>
             <span class="user-icon">
               <i class="iconfont icon-mobile-phone"></i>
@@ -23,15 +25,15 @@
     </section>
     <section class="profile_info_data border-1px">
       <ul class="info_data_list">
-        <a href="javascript:" class="info_data_link">
+        <a href="#" class="info_data_link">
           <span class="info_data_top"><span>0.00</span>元</span>
           <span class="info_data_bottom">我的余额</span>
         </a>
-        <a href="javascript:" class="info_data_link">
+        <a href="#" class="info_data_link">
           <span class="info_data_top"><span>0</span>个</span>
           <span class="info_data_bottom">我的优惠</span>
         </a>
-        <a href="javascript:" class="info_data_link">
+        <a href="#" class="info_data_link">
           <span class="info_data_top"><span>0</span>分</span>
           <span class="info_data_bottom">我的积分</span>
         </a>
@@ -39,7 +41,7 @@
     </section>
     <section class="profile_my_order border-1px">
       <!-- 我的订单 -->
-      <a href='javascript:' class="my_order">
+      <a href='#' class="my_order">
         <span>
           <i class="iconfont icon-suggest"></i>
         </span>
@@ -51,7 +53,7 @@
         </div>
       </a>
       <!-- 积分商城 -->
-      <a href='javascript:' class="my_order">
+      <a href='#' class="my_order">
         <span>
           <i class="iconfont icon-extra-inquiries"></i>
         </span>
@@ -63,7 +65,7 @@
         </div>
       </a>
       <!-- 广药外卖会员卡 -->
-      <a href="javascript:" class="my_order">
+      <a href="#" class="my_order">
         <span>
           <i class="iconfont icon-brand"></i>
         </span>
@@ -77,7 +79,7 @@
     </section>
     <section class="profile_my_order border-1px">
       <!-- 服务中心 -->
-      <a href="javascript:" class="my_order">
+      <a href="#" class="my_order">
         <span>
           <i class="iconfont icon-company"></i>
         </span>
@@ -101,6 +103,12 @@
   import {MessageBox, Toast} from 'mint-ui'
   import HeaderTop from "../../components/HeaderTop/HeaderTop"
   export default {
+    data () {
+      return {
+        baseUrl: 'http://localhost:8000'    
+      }
+    },
+
     computed: {
       ...mapState(['userInfo'])
     },
@@ -130,52 +138,13 @@
     @import "../../common/stylus/mixins.styl"
     .profile //我的
         width 100%
-        .header
-            background-color #02a774
-            position fixed
-            z-index 100
-            left 0
-            top 0
-            width 100%
-            height 45px
-            .header_search
-                position absolute
-                left 15px
-                top 50%
-                transform translateY(-50%)
-                width 10%
-                height 50%
-                .icon-sousuo
-                    font-size 25px
-                    color #fff
-            .header_title
-                position absolute
-                top 50%
-                left 50%
-                transform translate(-50%, -50%)
-                width 50%
-                color #fff
-                text-align center
-                .header_title_text
-                    font-size 20px
-                    color #fff
-                    display block
-            .header_login
-                font-size 14px
-                color #fff
-                position absolute
-                right 15px
-                top 50%
-                transform translateY(-50%)
-                .header_login_text
-                    color #fff
         .profile-number
             margin-top 45.5px
             .profile-link
               clearFix()
               position relative
               display block
-              background #02a774
+              background rgba(98,99,101,.8)
               padding 20px 10px
               .profile_image
                 float left
@@ -184,10 +153,9 @@
                 border-radius 50%
                 overflow hidden
                 vertical-align top
-                .icon-bussiness-man-fill
-                  background silver
-                  color white
-                  font-size 62px
+                >img
+                  width 100%
+                  height 100%
               .user-info
                 float left
                 margin-top 8px

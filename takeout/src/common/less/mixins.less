@@ -1,0 +1,54 @@
+// 一像素下边框
+// 颜色， 宽度
+.bottom-border-1px(@color: #000; @width: 100%; @height: 1px;){
+    position: relative;
+    border: none;
+    &::after {
+        content: '';
+        position: absolute;
+        // left: 0;
+        right: 0;
+        bottom: 0;
+        width: @width;
+        height: @height;
+        background-color: @color;
+        transform: scaleY(.5);
+    }
+        
+}
+
+// 一像素上边框
+.top-border-1px(@color: #000; @width: 100%; @height: 1px;){
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 200;
+        // left: 0;
+        right: 0;
+        top: 0;
+        width: @width;
+        height: @height;
+        background-color: @color;
+        transform: scaleY(.5);
+    }
+        
+}
+
+.center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.clearFix() {
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+  

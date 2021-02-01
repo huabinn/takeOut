@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 底部购物车 -->
     <div class="shopcart">
       <div class="content">
         <div class="content-left" @click="toggleShow">
@@ -9,12 +10,13 @@
             </div>
             <div class="num" v-if="totalCount">{{totalCount}}</div>
           </div>
-          <div class="price" :class="{highlight: totalCount}">￥{{totalPrice}}</div>
+          <div class="price" :class="{highlight: totalCount}">￥{{foodPrice}}</div>
           <div class="desc">另需配送费￥{{info.deliveryPrice}}元</div>
         </div>
-        <div class="content-right">
+        <!-- 结算字样 -->
+        <div class="content-right"  @click="payment">
           <div class="pay" :class="payClass">
-            {{payText}}
+            <span>{{payText}}</span>
           </div>
         </div>
       </div>
@@ -52,34 +54,34 @@
     data () {
       return {
         food: [],
-        isShow: false
+        isShow: false,
+        // payText: ''
       }
     },
 
     computed: {
       ...mapState(['cartFoods', 'info']),
-      ...mapGetters(['totalCount', 'totalPrice']),
+      ...mapGetters(['totalCount', 'foodPrice']),
       // 结算的样式
       payClass () {
-        const {totalPrice} = this
+        const {foodPrice} = this
         const {minPrice} = this.info
 
-        return totalPrice >= minPrice? 'enough' : 'not-enough'
+        return foodPrice >= minPrice? 'enough' : 'not-enough'
       },
       // 结算的字样
       payText () {
-        const {totalPrice} = this
+        const {foodPrice} = this
         const {minPrice} = this.info
-
-        if (totalPrice === 0) {
+        if (foodPrice === 0) {
           return `￥${minPrice}起送`
-        } else if ( totalPrice < minPrice) {
-          return `还差${minPrice - totalPrice}元起送`
+        } else if ( foodPrice < minPrice) {
+          return `还差${minPrice - foodPrice}元起送`
         } else {
           return '去结算'
         }
       },
-      
+            
       listShow () {
         if (this.totalCount === 0) {
           return false
@@ -115,6 +117,13 @@
           this.$store.dispatch('clearCart')
           this.isShow = false
         })
+      },
+      payment () {
+        if (this.payClass != 'enough') {
+          return
+        } else if (this.payClass === 'enough') {
+          this.$router.push('/payment')
+        }
       }
     },
 

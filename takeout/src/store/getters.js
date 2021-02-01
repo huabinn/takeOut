@@ -4,8 +4,11 @@ export default {
         return state.cartFoods.reduce((preTotal, food) => preTotal + food.count, 0)
     },
 
-    totalPrice (state) {
+    foodPrice (state) {
         return state.cartFoods.reduce((preTotal, food) => preTotal + food.count*food.price, 0)
+    },
+    totalPrice (state) {
+        return state.info.deliveryPrice + state.cartFoods.reduce((preTotal, food) => preTotal + food.count*food.price, 0)
     },
     // 获取满意的评价数量
     positiveSize (state) {

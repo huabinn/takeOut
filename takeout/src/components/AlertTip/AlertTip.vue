@@ -80,8 +80,8 @@
         span:nth-of-type(2)
           width: 2px
           height: 2px
-          border: 1px;
-          border-radius: 50%;
+          border: 1px
+          border-radius: 50%
           margin-top: 2px
           background-color #f8cb86
       .tip_text
@@ -95,7 +95,7 @@
         font-size 18px
         font-weight bold
         margin-top 10px
-        background-color #4cd964
+        background-color rgba(98,99,101,.8)
         width 100%
         text-align center
         line-height 35px

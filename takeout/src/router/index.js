@@ -14,6 +14,9 @@ const Order = () => import('../pages/Order/Order')
 const Profile = () => import('../pages/Profile/Profile.vue')
 const Login = () => import('../pages/Login/Login.vue')
 const Shop = () => import('../pages/Shop/Shop.vue')
+const UserInfo = () => import('../pages/UserInfo/UserInfo')
+const Payment = () => import('../pages/Payment/Payment')
+const Pay = () => import('../pages/Pay/Pay')
 
 import ShopGoods from '../pages/Shop/ShopGoods/ShopGoods'
 import ShopRatings from '../pages/Shop/ShopRatings/ShopRatings'
@@ -83,6 +86,18 @@ export default new VueRouter({
                 }
             ]
         },
+        {
+            path: '/userInfo',
+            component: UserInfo
+        },
+        {
+            path: '/payment',
+            component: Payment
+        },
+        {
+            path: '/pay',
+            component: Pay
+        }
         
     ]
 })

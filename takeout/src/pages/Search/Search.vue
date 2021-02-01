@@ -106,13 +106,15 @@
                     font-size 14px
                     color #333
                     background-color #f2f2f2
+                    border-radius 18px
                 &.search_submit
                     float right
                     width 18%
-                    border 4px solid #02a774
+                    border none
+                    border-radius 18px
                     font-size 16px
                     color #fff
-                    background-color #02a774
+                    background-color rgba(98,99,101,.8)
 
         .list
             .list_container

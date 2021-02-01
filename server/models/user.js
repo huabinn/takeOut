@@ -12,7 +12,8 @@ const {Schema} = mongoose
 let userSchema = new Schema({
     name: {
         type: String,
-        default: 'admin' + Date.now
+        maxlength: 11,
+        default: 'admin'
     },
     phone: {
         type: String
@@ -40,6 +41,9 @@ let userSchema = new Schema({
     },
     birthday: {
        type: Date
+    },
+    address: {
+        type: String
     }
 })
 

@@ -20,7 +20,7 @@
 
 <style lang='stylus' rel='stylesheet/stylus'>
     .header
-        background-color #02a774
+        background-color rgba(98,99,101,.8)
         position fixed
         z-index 100
         left 0
@@ -61,4 +61,6 @@
             transform translateY(-50%)
             .header_login_text
                 color #fff
+                .icon-certified-supplier
+                    font-size 20px
 </style>
