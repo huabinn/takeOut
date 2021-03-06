@@ -8,4 +8,5 @@
 	
 ## 2. 启动后台应用
 	1). 进入server
-	2). 执行命令: node ./app.js
+	2). npm install
+	3). 执行命令: node ./app.js
